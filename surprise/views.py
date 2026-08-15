@@ -20,9 +20,9 @@ def login_view(request):
         when_we_met = request.POST.get('when_we_met', '').strip()
 
         # Temporary dummy details
-        correct_username = 'Chukkho'
-        correct_password = 'merijaan'
-        correct_date = '11/04/2021'
+        correct_username = 'Thakur_sahab'
+        correct_password = 'Gjb_yarr_dadaji'
+        correct_date = '11/05/2025'
 
         if username != correct_username:
 
