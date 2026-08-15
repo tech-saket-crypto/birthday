@@ -8,9 +8,6 @@ from django.contrib.auth.models import User
 
 def login_view(request):
 
-    if request.user.is_authenticated:
-        return redirect('/home/')
-
     error_type = None
 
     if request.method == 'POST':
@@ -19,35 +16,28 @@ def login_view(request):
         password = request.POST.get('password', '')
         when_we_met = request.POST.get('when_we_met', '').strip()
 
-        # Temporary dummy details
         correct_username = 'Thakur_sahab'
         correct_password = 'Gjb_yarr_dadaji'
         correct_date = '11/05/2025'
 
         if username != correct_username:
-
             error_type = 'username'
 
         elif password != correct_password:
-
             error_type = 'password'
 
         elif when_we_met != correct_date:
-
             error_type = 'date'
 
         else:
 
-            # Create dummy Django user automatically if it doesn't exist
             user, created = User.objects.get_or_create(
                 username=correct_username
             )
 
-            # Set password
             user.set_password(correct_password)
             user.save()
 
-            # Login the user
             login(request, user)
 
             return redirect('/home/')
