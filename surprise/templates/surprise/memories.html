@@ -1,3 +1,6 @@
+```html
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -447,36 +450,25 @@
     <div
         class="background-heart"
         style="left:10%; animation-duration:9s;">
-
         ❤️
-
     </div>
-
 
     <div
         class="background-heart"
         style="left:25%; animation-duration:12s; animation-delay:2s;">
-
         💕
-
     </div>
-
 
     <div
         class="background-heart"
         style="left:70%; animation-duration:10s; animation-delay:1s;">
-
         💗
-
     </div>
-
 
     <div
         class="background-heart"
         style="left:90%; animation-duration:13s; animation-delay:4s;">
-
         💖
-
     </div>
 
 
@@ -487,16 +479,12 @@
 
 
         <div class="small-title">
-
             A LITTLE TRIP DOWN MEMORY LANE
-
         </div>
 
 
         <h1>
-
             Our Memories ❤️
-
         </h1>
 
 
@@ -525,8 +513,8 @@
                 onclick="openImage(this)">
 
                 <img
-                    src="https://picsum.photos/600/700?random=11"
-                    alt="Memory 1">
+                    src="{% static 'surprise/memory1.jpeg' %}"
+                    alt="Our Memory 1">
 
                 <div class="caption">
 
@@ -552,8 +540,8 @@
                 onclick="openImage(this)">
 
                 <img
-                    src="https://picsum.photos/600/700?random=12"
-                    alt="Memory 2">
+                    src="{% static 'surprise/memory2.jpeg' %}"
+                    alt="Our Memory 2">
 
                 <div class="caption">
 
@@ -579,8 +567,8 @@
                 onclick="openImage(this)">
 
                 <img
-                    src="https://picsum.photos/600/700?random=13"
-                    alt="Memory 3">
+                    src="{% static 'surprise/memory3.jpeg' %}"
+                    alt="Our Memory 3">
 
                 <div class="caption">
 
@@ -606,8 +594,8 @@
                 onclick="openImage(this)">
 
                 <img
-                    src="https://picsum.photos/600/700?random=14"
-                    alt="Memory 4">
+                    src="{% static 'surprise/memory4.jpeg' %}"
+                    alt="Our Memory 4">
 
                 <div class="caption">
 
@@ -633,8 +621,8 @@
                 onclick="openImage(this)">
 
                 <img
-                    src="https://picsum.photos/600/700?random=15"
-                    alt="Memory 5">
+                    src="{% static 'surprise/memory5.jpeg' %}"
+                    alt="Our Memory 5">
 
                 <div class="caption">
 
@@ -660,8 +648,8 @@
                 onclick="openImage(this)">
 
                 <img
-                    src="https://picsum.photos/600/700?random=16"
-                    alt="Memory 6">
+                    src="{% static 'surprise/memory6.jpeg' %}"
+                    alt="Our Memory 6">
 
                 <div class="caption">
 
@@ -710,11 +698,8 @@
         onclick="closeImage()">
 
         <span class="close">
-
             ×
-
         </span>
-
 
         <img
             id="popupImage"
@@ -729,7 +714,6 @@
 
     <script>
 
-
         /* OPEN IMAGE */
 
         function openImage(card) {
@@ -737,18 +721,15 @@
             const image =
                 card.querySelector("img");
 
-
             document.getElementById(
                 "popupImage"
             ).src = image.src;
-
 
             document.getElementById(
                 "popup"
             ).classList.add("show");
 
         }
-
 
 
         /* CLOSE IMAGE */
@@ -760,7 +741,6 @@
             ).classList.remove("show");
 
         }
-
 
 
         /* NEXT PAGE */
@@ -778,3 +758,4 @@
 </body>
 
 </html>
+```
