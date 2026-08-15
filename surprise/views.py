@@ -62,7 +62,7 @@ def login_view(request):
 
 
 # Countdown unlock date/time
-COUNTDOWN_END = datetime(2026, 8, 23, 23, 59, 59, tzinfo=timezone.get_current_timezone())
+COUNTDOWN_END = datetime(2026, 9, 23, 23, 59, 59, tzinfo=timezone.get_current_timezone())
 @login_required
 def home(request):
     return render(
