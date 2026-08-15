@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Just For You ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    #ff5f9e55,
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    #a855f755,
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #120016,
+                    #24002f,
+                    #08000d
+                );
+
+            color: white;
+        }
+
+
+        /* =========================
+           GLOW
+        ========================= */
+
+        .glow {
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            filter: blur(100px);
+
+            opacity: .35;
+
+            pointer-events: none;
+
+            animation:
+                moveGlow
+                8s
+                infinite alternate ease-in-out;
+        }
+
+        .glow.one {
+            background: #ff3d81;
+
+            top: -100px;
+            left: -100px;
+        }
+
+        .glow.two {
+            background: #8b5cf6;
+
+            bottom: -120px;
+            right: -100px;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes moveGlow {
+
+            from {
+                transform:
+                    translate(0, 0)
+                    scale(1);
+            }
+
+            to {
+                transform:
+                    translate(80px, 60px)
+                    scale(1.2);
+            }
+
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .floating-heart {
+            position: absolute;
+
+            bottom: -50px;
+
+            font-size: 20px;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            animation:
+                floatUp
+                linear
+                infinite;
+        }
+
+        @keyframes floatUp {
+
+            from {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: .6;
+            }
+
+            to {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        .h1 {
+            left: 10%;
+            animation-duration: 9s;
+        }
+
+        .h2 {
+            left: 25%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .h3 {
+            left: 70%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .h4 {
+            left: 85%;
+            animation-duration: 13s;
+            animation-delay: 4s;
+        }
+
+
+        /* =========================
+           LOGIN CARD
+        ========================= */
+
+        .login-card {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: min(90%, 420px);
+
+            padding: 45px 35px;
+
+            text-align: center;
+
+            background:
+                rgba(255, 255, 255, .08);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, .18);
+
+            border-radius: 25px;
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0, 0, 0, .5),
+
+                inset 0 0 30px
+                rgba(255,255,255,.03);
+
+            animation:
+                cardEntry
+                1.2s
+                ease
+                forwards;
+        }
+
+        @keyframes cardEntry {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(50px)
+                    scale(.9);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        /* =========================
+           HEART
+        ========================= */
+
+        .heart {
+
+            font-size: 55px;
+
+            margin-bottom: 15px;
+
+            animation:
+                heartbeat
+                1.5s
+                infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.2);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.15);
+            }
+
+        }
+
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        h1 {
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff6fa8,
+                    #ffb3d2,
+                    #c084fc
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+
+            color: #ddd;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           INPUT
+        ========================= */
+
+        .input-box {
+
+            text-align: left;
+
+            margin-bottom: 18px;
+        }
+
+        .input-box label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
+
+            color: #eee;
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
+        }
+
+
+        .input-box input {
+
+            width: 100%;
+
+            padding: 14px 16px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.2);
+
+            border-radius: 12px;
+
+            outline: none;
+
+            background:
+                rgba(255,255,255,.08);
+
+            color: white;
+
+            font-size: 15px;
+
+            transition: .3s;
+        }
+
+        .input-box input:focus {
+
+            border-color: #ff5f9e;
+
+            box-shadow:
+                0 0 18px
+                rgba(255,95,158,.35);
+        }
+
+        .input-box input::placeholder {
+
+            color: #aaa;
+        }
+
+
+        /* =========================
+           PASSWORD EYE
+        ========================= */
+
+        .show-password {
+
+            position: absolute;
+
+            right: 13px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            opacity: .7;
+
+            user-select: none;
+        }
+
+        .show-password:hover {
+
+            opacity: 1;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .login-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 10px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f91,
+                    #c026d3
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,79,145,.3);
+
+            transition: .3s;
+        }
+
+        .login-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(255,79,145,.5);
+        }
+
+        .login-btn:active {
+
+            transform:
+                scale(.97);
+        }
+
+
+        /* =========================
+           SECRET TEXT
+        ========================= */
+
+        .secret {
+
+            margin-top: 25px;
+
+            font-size: 12px;
+
+            color: #aaa;
+        }
+
+
+        /* =========================
+           ERROR POPUP
+        ========================= */
+
+        .error-message {
+
+            margin-top: 18px;
+
+            padding: 12px 15px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255, 70, 120, .12);
+
+            border:
+                1px solid
+                rgba(255, 100, 150, .3);
+
+            color: #ffb6d5;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            animation:
+                errorAppear
+                .4s
+                ease;
+        }
+
+        @keyframes errorAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           SHAKE
+        ========================= */
+
+        .shake {
+
+            animation:
+                shake
+                .45s
+                ease;
+        }
+
+        @keyframes shake {
+
+            0%,100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-8px);
+            }
+
+            40% {
+                transform: translateX(8px);
+            }
+
+            60% {
+                transform: translateX(-6px);
+            }
+
+            80% {
+                transform: translateX(6px);
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .login-card {
+
+                padding:
+                    35px 25px;
+            }
+
+            h1 {
+
+                font-size: 25px;
+            }
+
+            .heart {
+
+                font-size: 48px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- GLOW -->
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="floating-heart h1">
+        ❤️
+    </div>
+
+    <div class="floating-heart h2">
+        💕
+    </div>
+
+    <div class="floating-heart h3">
+        💗
+    </div>
+
+    <div class="floating-heart h4">
+        💖
+    </div>
+
+
+    <!-- LOGIN CARD -->
+
+    <div
+        class="login-card"
+        id="loginCard">
+
+
+        <div class="heart">
+            ❤️
+        </div>
+
+
+        <h1>
+            Hey You...
+        </h1>
+
+
+        <p class="subtitle">
+            This little world is only for you.
+        </p>
+
+
+        <form
+            method="post"
+            id="loginForm">
+
+            {% csrf_token %}
+
+
+            <!-- USERNAME -->
+
+            <div class="input-box">
+
+                <label>
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Enter your username"
+                    autocomplete="off"
+                    required>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-box">
+
+                <label>
+                    Password
+                </label>
+
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Enter the secret password"
+                        required>
+
+
+                    <span
+                        class="show-password"
+                        onclick="togglePassword()">
+
+                        👁️
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- WHEN WE MET -->
+
+            <div class="input-box">
+
+                <label>
+                    When We Met ❤️
+                </label>
+
+                <input
+                    type="text"
+                    name="when_we_met"
+                    id="when_we_met"
+                    placeholder="DD/MM/YYYY"
+                    autocomplete="off"
+                    required>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="login-btn">
+
+                Enter My Surprise ❤️
+
+            </button>
+
+
+        </form>
+
+
+        <!-- ERROR -->
+
+        {% if error_type %}
+
+        <div
+            class="error-message"
+            id="errorMessage">
+
+
+            {% if error_type == 'username' %}
+
+                👀 Hmm... username galat hai.
+                <br>
+                Hint: <strong>Wahi favourite word
+                jo tum hamesha bolte ho 😏</strong>
+
+
+            {% elif error_type == 'password' %}
+
+                🤫 Password yaad nahi?
+                <br>
+                Hint: <strong>Your elder friend
+                who is your bro 😎</strong>
+
+
+            {% elif error_type == 'date' %}
+
+                📅 Date thodi galat hai...
+                <br>
+                Hint: <strong>Socho... hum kab mile the? ❤️</strong>
+
+
+            {% elif error_type == 'account' %}
+
+                😭 Details sahi hain,
+                lekin account setup mein problem hai.
+                <br>
+                Ek baar Django user check karna.
+
+
+            {% endif %}
+
+
+        </div>
+
+        {% endif %}
+
+
+        <p class="secret">
+
+            ✨ Only someone special can enter ✨
+
+        </p>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =========================
+           SHOW / HIDE PASSWORD
+        ========================= */
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById(
+                    "password"
+                );
+
+
+            const eye =
+                document.querySelector(
+                    ".show-password"
+                );
+
+
+            if (
+                password.type ===
+                "password"
+            ) {
+
+                password.type =
+                    "text";
+
+                eye.innerHTML =
+                    "🙈";
+
+            }
+
+            else {
+
+                password.type =
+                    "password";
+
+                eye.innerHTML =
+                    "👁️";
+
+            }
+
+        }
+
+
+        /* =========================
+           SHAKE ON ERROR
+        ========================= */
+
+        const errorMessage =
+            document.getElementById(
+                "errorMessage"
+            );
+
+
+        const loginCard =
+            document.getElementById(
+                "loginCard"
+            );
+
+
+        if (errorMessage) {
+
+            loginCard.classList.add(
+                "shake"
+            );
+
+        }
+
+
+        /* =========================
+           REMOVE SHAKE
+        ========================= */
+
+        setTimeout(
+            function() {
+
+                loginCard.classList.remove(
+                    "shake"
+                );
+
+            },
+            600
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1539 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Something Special ❤️</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            overflow: hidden;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    #ff4f9150,
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    #8b5cf650,
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #100014,
+                    #24002f,
+                    #09000d
+                );
+
+            color: white;
+        }
+
+
+        /* GLOW */
+
+        .glow {
+
+            position: fixed;
+
+            width: 400px;
+
+            height: 400px;
+
+            border-radius: 50%;
+
+            filter: blur(110px);
+
+            opacity: .3;
+
+            pointer-events: none;
+
+            animation:
+                glowMove
+                10s
+                infinite
+                alternate
+                ease-in-out;
+        }
+
+
+        .glow.one {
+
+            background: #ff3d81;
+
+            top: -150px;
+
+            left: -150px;
+        }
+
+
+        .glow.two {
+
+            background: #8b5cf6;
+
+            right: -150px;
+
+            bottom: -150px;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes glowMove {
+
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(100px, 70px) scale(1.25);
+            }
+        }
+
+
+        /* STARS */
+
+        .stars {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 3px;
+
+            height: 3px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            opacity: .2;
+
+            animation:
+                twinkle
+                3s
+                infinite
+                ease-in-out;
+        }
+
+
+        .star:nth-child(1) {
+            left: 8%;
+            top: 15%;
+            animation-delay: .2s;
+        }
+
+        .star:nth-child(2) {
+            left: 18%;
+            top: 75%;
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(3) {
+            left: 32%;
+            top: 25%;
+            animation-delay: 1.7s;
+        }
+
+        .star:nth-child(4) {
+            left: 47%;
+            top: 82%;
+            animation-delay: .5s;
+        }
+
+        .star:nth-child(5) {
+            left: 61%;
+            top: 14%;
+            animation-delay: 2s;
+        }
+
+        .star:nth-child(6) {
+            left: 74%;
+            top: 62%;
+            animation-delay: 1.2s;
+        }
+
+        .star:nth-child(7) {
+            left: 86%;
+            top: 28%;
+            animation-delay: .7s;
+        }
+
+        .star:nth-child(8) {
+            left: 94%;
+            top: 84%;
+            animation-delay: 2.2s;
+        }
+
+
+        @keyframes twinkle {
+
+            0%, 100% {
+                opacity: .1;
+                transform: scale(.7);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.6);
+            }
+        }
+
+
+        /* MAIN */
+
+        .container {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 90%;
+
+            max-width: 800px;
+
+            text-align: center;
+
+            animation:
+                appear
+                2s
+                ease
+                forwards;
+        }
+
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(40px)
+                    scale(.97);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* SMALL TEXT */
+
+        .small-text {
+
+            font-size: 16px;
+
+            letter-spacing: 3px;
+
+            color: #ff9bc5;
+
+            margin-bottom: 25px;
+
+            animation:
+                textGlow
+                3s
+                infinite
+                alternate;
+        }
+
+
+        @keyframes textGlow {
+
+            from {
+
+                text-shadow:
+                    0 0 5px
+                    rgba(255, 155, 197, .2);
+            }
+
+            to {
+
+                text-shadow:
+                    0 0 20px
+                    rgba(255, 155, 197, .7);
+            }
+        }
+
+
+        /* TITLE */
+
+        h1 {
+
+            font-size:
+                clamp(45px, 8vw, 90px);
+
+            margin-bottom: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff6fa8,
+                    #ffb3d2,
+                    #c084fc,
+                    #ff6fa8
+                );
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            animation:
+                gradientMove
+                5s
+                linear
+                infinite;
+        }
+
+
+        @keyframes gradientMove {
+
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 100%;
+            }
+
+            100% {
+                background-position: 0%;
+            }
+        }
+
+
+        /* MESSAGE */
+
+        .message {
+
+            font-size: 20px;
+
+            color: #ddd;
+
+            max-width: 600px;
+
+            margin: auto;
+
+            line-height: 1.7;
+        }
+
+
+        /* HEART */
+
+        .heart {
+
+            font-size: 70px;
+
+            margin: 30px 0;
+
+            animation:
+                heartbeat
+                1.5s
+                infinite;
+        }
+
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.25);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.15);
+            }
+        }
+
+
+        /* COUNTDOWN TITLE */
+
+        .countdown-title {
+
+            margin-top: 30px;
+
+            font-size: 15px;
+
+            letter-spacing: 2px;
+
+            color: #ffb3d2;
+
+            animation:
+                softPulse
+                2s
+                infinite;
+        }
+
+
+        @keyframes softPulse {
+
+            0%, 100% {
+                opacity: .6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        /* COUNTDOWN */
+
+        .countdown {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin-top: 15px;
+        }
+
+
+        .time-box {
+
+            min-width: 75px;
+
+            padding: 12px 10px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255, 255, 255, .08);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, .15);
+
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, .25);
+        }
+
+
+        .time-box.tick {
+
+            animation:
+                tickPulse
+                .4s
+                ease;
+        }
+
+
+        @keyframes tickPulse {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+
+                transform: scale(1.08);
+
+                box-shadow:
+                    0 0 30px
+                    rgba(255, 95, 158, .5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        .time-number {
+
+            display: block;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #ff8fbd;
+        }
+
+
+        .time-label {
+
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            color: #ccc;
+        }
+
+
+        /* LOCKED */
+
+        .locked-message {
+
+            margin-top: 20px;
+
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+
+        /* BUTTON */
+
+        .btn {
+
+            margin-top: 25px;
+
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f91,
+                    #c026d3
+                );
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px
+                rgba(255, 79, 145, .35);
+
+            transition: .3s;
+        }
+
+
+        .btn:hover {
+
+            transform:
+                translateY(-4px)
+                scale(1.05);
+
+            box-shadow:
+                0 15px 45px
+                rgba(255, 79, 145, .65);
+        }
+
+
+        /* MUSIC BUTTON */
+
+        .music-btn {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            z-index: 100;
+
+            border: none;
+
+            border-radius: 50px;
+
+            padding: 12px 18px;
+
+            background:
+                rgba(255, 79, 145, .85);
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 20px
+                rgba(255, 79, 145, .4);
+
+            transition: .3s;
+        }
+
+
+        .music-btn:hover {
+
+            transform: scale(1.05);
+
+        }
+
+
+        /* FLOATING HEARTS */
+
+        .floating-heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 20px;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            z-index: 2;
+
+            animation:
+                floatUp
+                linear
+                infinite;
+        }
+
+
+        @keyframes floatUp {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+
+                opacity: .7;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        .one {
+            left: 10%;
+            animation-duration: 9s;
+        }
+
+        .two {
+            left: 30%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .three {
+            left: 70%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .four {
+            left: 90%;
+            animation-duration: 13s;
+            animation-delay: 4s;
+        }
+
+
+        /* HEART BURST */
+
+        .burst-heart {
+
+            position: fixed;
+
+            left: 50%;
+
+            top: 50%;
+
+            font-size: 25px;
+
+            pointer-events: none;
+
+            z-index: 50;
+
+            animation:
+                burst
+                1.8s
+                ease-out
+                forwards;
+        }
+
+
+        @keyframes burst {
+
+            from {
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(.3);
+
+                opacity: 1;
+            }
+
+            to {
+
+                transform:
+                    translate(
+                        var(--x),
+                        var(--y)
+                    )
+                    scale(1.5)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* FLASH */
+
+        .unlock-flash {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(255, 255, 255, .8);
+
+            z-index: 40;
+
+            pointer-events: none;
+
+            animation:
+                flash
+                1s
+                ease-out
+                forwards;
+        }
+
+
+        @keyframes flash {
+
+            from {
+                opacity: .8;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+
+        /* LAST 10 SECONDS */
+
+        body.final-countdown .heart {
+
+            animation:
+                heartbeat
+                .7s
+                infinite;
+        }
+
+
+        body.final-countdown .time-number {
+
+            color: #ff5f9e;
+
+            text-shadow:
+                0 0 20px
+                rgba(255, 95, 158, .8);
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .countdown {
+
+                gap: 5px;
+            }
+
+
+            .time-box {
+
+                min-width: 60px;
+
+                padding:
+                    10px 5px;
+            }
+
+
+            .time-number {
+
+                font-size: 22px;
+            }
+
+
+            .time-label {
+
+                font-size: 8px;
+            }
+
+
+            .message {
+
+                font-size: 17px;
+            }
+
+
+            .music-btn {
+
+                top: 10px;
+
+                right: 10px;
+
+                padding:
+                    10px 14px;
+
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- MUSIC -->
+
+    <audio
+        id="birthdaySong"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="{% static 'surprise/senorita.mp3' %}"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- MUSIC BUTTON -->
+
+    <button
+        id="musicButton"
+        class="music-btn"
+        onclick="toggleMusic()"
+    >
+
+        🎵 Play Song ❤️
+
+    </button>
+
+
+    <!-- GLOW -->
+
+    <div class="glow one"></div>
+
+    <div class="glow two"></div>
+
+
+    <!-- STARS -->
+
+    <div class="stars">
+
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+
+    </div>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="floating-heart one">❤️</div>
+
+    <div class="floating-heart two">💕</div>
+
+    <div class="floating-heart three">💗</div>
+
+    <div class="floating-heart four">💖</div>
+
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+
+        <div class="small-text">
+
+            WELCOME TO YOUR LITTLE WORLD
+
+        </div>
+
+
+        <div class="heart">
+
+            ❤️
+
+        </div>
+
+
+        <h1>
+
+            Hey Beautiful...
+
+        </h1>
+
+
+        <p class="message">
+
+            You made it this far.
+            But trust me...
+            this is just the beginning.
+
+            <br><br>
+
+            I have something special waiting for you.
+
+        </p>
+
+
+        <div class="countdown-title">
+
+            ✨ Something special unlocks in ✨
+
+        </div>
+
+
+        <!-- COUNTDOWN -->
+
+        <div
+            class="countdown"
+            id="countdown"
+        >
+
+            <div class="time-box">
+
+                <span
+                    class="time-number"
+                    id="days"
+                >
+                    00
+                </span>
+
+                <span class="time-label">
+
+                    DAYS
+
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span
+                    class="time-number"
+                    id="hours"
+                >
+                    00
+                </span>
+
+                <span class="time-label">
+
+                    HOURS
+
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span
+                    class="time-number"
+                    id="minutes"
+                >
+                    00
+                </span>
+
+                <span class="time-label">
+
+                    MINUTES
+
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <span
+                    class="time-number"
+                    id="seconds"
+                >
+                    00
+                </span>
+
+                <span class="time-label">
+
+                    SECONDS
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="locked-message"
+            id="lockedMessage"
+        >
+
+            🔐 Be patient...
+            something beautiful is waiting for you ❤️
+
+        </div>
+
+
+        <div id="buttonContainer"></div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        const song =
+            document.getElementById(
+                "birthdaySong"
+            );
+
+
+        const musicButton =
+            document.getElementById(
+                "musicButton"
+            );
+
+
+        function toggleMusic() {
+
+            if (song.paused) {
+
+                song.play()
+                    .then(() => {
+
+                        musicButton.innerHTML =
+                            "🎵 Playing... ❤️";
+
+                    })
+                    .catch(error => {
+
+                        console.log(
+                            "Music error:",
+                            error
+                        );
+
+                    });
+
+            }
+
+            else {
+
+                song.pause();
+
+                musicButton.innerHTML =
+                    "🎵 Play Song ❤️";
+            }
+
+        }
+
+
+        /* Try autoplay */
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                song.play()
+                    .then(() => {
+
+                        musicButton.innerHTML =
+                            "🎵 Playing... ❤️";
+
+                    })
+                    .catch(() => {
+
+                        /*
+                        Browser ne autoplay
+                        block kiya to button
+                        se manually play hoga.
+                        */
+
+                        musicButton.innerHTML =
+                            "🎵 Play Song ❤️";
+
+                    });
+
+            }
+        );
+
+
+        /* =========================
+           COUNTDOWN
+        ========================= */
+
+        const targetDate =
+            new Date("{{ countdown_end }}");
+
+
+        const daysElement =
+            document.getElementById("days");
+
+        const hoursElement =
+            document.getElementById("hours");
+
+        const minutesElement =
+            document.getElementById("minutes");
+
+        const secondsElement =
+            document.getElementById("seconds");
+
+        const lockedMessage =
+            document.getElementById(
+                "lockedMessage"
+            );
+
+        const buttonContainer =
+            document.getElementById(
+                "buttonContainer"
+            );
+
+
+        let previousSeconds = -1;
+
+        let unlocked = false;
+
+
+        /* =========================
+           HEART BURST
+        ========================= */
+
+        function createHeartBurst() {
+
+            const hearts = [
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💓",
+                "💘"
+            ];
+
+
+            for (
+                let i = 0;
+                i < 30;
+                i++
+            ) {
+
+                const heart =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                heart.className =
+                    "burst-heart";
+
+
+                heart.innerText =
+                    hearts[
+                        Math.floor(
+                            Math.random() *
+                            hearts.length
+                        )
+                    ];
+
+
+                const angle =
+                    Math.random() *
+                    Math.PI *
+                    2;
+
+
+                const distance =
+                    150 +
+                    Math.random() * 350;
+
+
+                const x =
+                    Math.cos(angle) *
+                    distance;
+
+
+                const y =
+                    Math.sin(angle) *
+                    distance;
+
+
+                heart.style.setProperty(
+                    "--x",
+                    `${x}px`
+                );
+
+
+                heart.style.setProperty(
+                    "--y",
+                    `${y}px`
+                );
+
+
+                document.body.appendChild(
+                    heart
+                );
+
+
+                setTimeout(() => {
+
+                    heart.remove();
+
+                }, 2000);
+
+            }
+
+        }
+
+
+        /* =========================
+           UNLOCK
+        ========================= */
+
+        function unlockPage() {
+
+            if (unlocked) {
+                return;
+            }
+
+
+            unlocked = true;
+
+
+            document.body
+                .classList
+                .remove(
+                    "final-countdown"
+                );
+
+
+            /* STOP SONG */
+
+            song.pause();
+
+
+            /* FLASH */
+
+            const flash =
+                document.createElement(
+                    "div"
+                );
+
+
+            flash.className =
+                "unlock-flash";
+
+
+            document.body.appendChild(
+                flash
+            );
+
+
+            setTimeout(() => {
+
+                flash.remove();
+
+            }, 1000);
+
+
+            /* HEARTS */
+
+            createHeartBurst();
+
+
+            /* MESSAGE */
+
+            lockedMessage.innerHTML =
+                "💖 The wait is finally over...";
+
+
+            lockedMessage.style.color =
+                "#ff9bc5";
+
+
+            /* BUTTON */
+
+            buttonContainer.innerHTML = `
+
+                <button
+                    class="btn"
+                    onclick="
+                        window.location.href='/beginning/';
+                    "
+                >
+
+                    Let's Begin ✨
+
+                </button>
+
+            `;
+
+        }
+
+
+        /* =========================
+           COUNTDOWN FUNCTION
+        ========================= */
+
+        function updateCountdown() {
+
+
+            const now =
+                new Date();
+
+
+            const difference =
+                targetDate - now;
+
+
+            /* UNLOCK */
+
+            if (
+                difference <= 0
+            ) {
+
+                daysElement.innerText =
+                    "00";
+
+                hoursElement.innerText =
+                    "00";
+
+                minutesElement.innerText =
+                    "00";
+
+                secondsElement.innerText =
+                    "00";
+
+
+                unlockPage();
+
+
+                return;
+
+            }
+
+
+            /* DAYS */
+
+            const days =
+                Math.floor(
+                    difference /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            /* HOURS */
+
+            const hours =
+                Math.floor(
+                    (
+                        difference /
+                        (1000 * 60 * 60)
+                    ) % 24
+                );
+
+
+            /* MINUTES */
+
+            const minutes =
+                Math.floor(
+                    (
+                        difference /
+                        (1000 * 60)
+                    ) % 60
+                );
+
+
+            /* SECONDS */
+
+            const seconds =
+                Math.floor(
+                    (
+                        difference /
+                        1000
+                    ) % 60
+                );
+
+
+            /* DISPLAY */
+
+            daysElement.innerText =
+                String(days)
+                .padStart(2, "0");
+
+
+            hoursElement.innerText =
+                String(hours)
+                .padStart(2, "0");
+
+
+            minutesElement.innerText =
+                String(minutes)
+                .padStart(2, "0");
+
+
+            secondsElement.innerText =
+                String(seconds)
+                .padStart(2, "0");
+
+
+            /* TICK ANIMATION */
+
+            if (
+                previousSeconds !==
+                seconds
+            ) {
+
+                document
+                    .querySelectorAll(
+                        ".time-box"
+                    )
+                    .forEach(box => {
+
+                        box.classList.remove(
+                            "tick"
+                        );
+
+
+                        void box.offsetWidth;
+
+
+                        box.classList.add(
+                            "tick"
+                        );
+
+                    });
+
+
+                previousSeconds =
+                    seconds;
+
+            }
+
+
+            /* LAST 10 SECONDS */
+
+            if (
+                difference <= 10000
+            ) {
+
+                document.body
+                    .classList
+                    .add(
+                        "final-countdown"
+                    );
+
+            }
+
+        }
+
+
+        updateCountdown();
+
+
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
