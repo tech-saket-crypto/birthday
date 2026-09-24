@@ -16,8 +16,8 @@ def login_view(request):
         password = request.POST.get('password', '')
         when_we_met = request.POST.get('when_we_met', '').strip()
 
-        correct_username = 'Thakur_sahab'
-        correct_password = 'Gjb_yarr_dadaji'
+        correct_username = 'Navya_Sahni'
+        correct_password = 'Navyasaketkijodi'
         correct_date = '11/05/2025'
 
         if username != correct_username:
@@ -52,7 +52,7 @@ def login_view(request):
 
 
 # Countdown unlock date/time
-COUNTDOWN_END = datetime(2026, 9, 25, 23, 59, 59, tzinfo=timezone.get_current_timezone())
+COUNTDOWN_END = datetime(2026, 9, 25, 2, 40, 59, tzinfo=timezone.get_current_timezone())
 @login_required
 def home(request):
     return render(
